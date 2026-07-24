@@ -1,0 +1,341 @@
+:root {
+  --brand-navy: #14235a;
+  --brand-blue: #6ec1e4;
+  --brand-ink: #0d1226;
+  --brand-paper: #f8fbff;
+  --text-main: #0f1b42;
+  --text-soft: #364268;
+  --container: 1140px;
+  --shadow-soft: 0 16px 45px rgba(20, 35, 90, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--text-main);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.5;
+  background: radial-gradient(circle at 12% 0%, #d8ebff 0%, #ffffff 40%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  padding: 5rem 0;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  font-family: var(--font-display), sans-serif;
+  color: var(--brand-navy);
+  font-size: clamp(1.9rem, 2.6vw, 3.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  min-height: 88vh;
+  display: grid;
+  align-items: center;
+  isolation: isolate;
+  background-image: url("https://recoverycenter.com.mx/wp-content/uploads/2020/06/recuperacion-de-discos-duros-21-scaled.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.84) 20%, rgba(110, 193, 228, 0.35) 100%);
+}
+
+.hero-content {
+  display: grid;
+  gap: 1.2rem;
+  justify-items: end;
+  text-align: right;
+}
+
+.eyebrow {
+  color: var(--brand-navy);
+  font-family: var(--font-accent), serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.hero h1 {
+  max-width: 12ch;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 5.2vw, 4.8rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--brand-navy);
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.lead {
+  max-width: 50ch;
+  color: var(--text-soft);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  padding: 0.8rem 1.4rem;
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  transition: all 180ms ease;
+}
+
+.btn-primary {
+  background: var(--brand-navy);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  color: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand-navy);
+  border-color: rgba(20, 35, 90, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--brand-navy);
+}
+
+.section-navy {
+  background: var(--brand-navy);
+}
+
+.section-navy .section-title {
+  color: #ffffff;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.service-card {
+  min-height: 190px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1rem;
+  transition: background 220ms ease;
+}
+
+.service-card h3 {
+  color: #ffffff;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.service-card:hover {
+  background: var(--brand-blue);
+}
+
+.section-light {
+  background: var(--brand-paper);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid rgba(20, 35, 90, 0.12);
+  box-shadow: var(--shadow-soft);
+  padding: 1.4rem;
+}
+
+.feature-card h3 {
+  color: var(--brand-navy);
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.feature-card p {
+  color: var(--text-soft);
+}
+
+.section-band {
+  isolation: isolate;
+  background-image: url("https://recoverycenter.com.mx/wp-content/uploads/2020/05/data-recovery-lab.png");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.section-band .overlay {
+  background: linear-gradient(180deg, rgba(20, 35, 90, 0.55) 0%, rgba(20, 35, 90, 0.78) 100%);
+}
+
+.inverse {
+  color: #ffffff;
+}
+
+.process-list {
+  display: grid;
+  gap: 0.8rem;
+  list-style-position: inside;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  color: #000000;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+}
+
+.section-contact {
+  background-image: url("https://recoverycenter.com.mx/wp-content/uploads/2020/05/Entrega-y-recoleccion-de-discos.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.section-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(110, 193, 228, 0.5) 100%);
+}
+
+.contact-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contact-text {
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(20, 35, 90, 0.16);
+  padding: 1.1rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-family: var(--font-accent), serif;
+  color: var(--brand-navy);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(20, 35, 90, 0.2);
+  padding: 0.65rem;
+  font: inherit;
+  color: var(--brand-ink);
+  background: #ffffff;
+}
+
+.footer {
+  background: #0f1b42;
+  color: #ffffff;
+  padding: 1.2rem 0;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 3.6rem 0;
+  }
+
+  .hero {
+    min-height: 82vh;
+    background-image: url("https://recoverycenter.com.mx/wp-content/uploads/2020/06/recuperacion-de-discos-duros-2.jpg");
+  }
+
+  .hero-content {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    border-right: 0;
+    min-height: 135px;
+  }
+
+  .process-list {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
