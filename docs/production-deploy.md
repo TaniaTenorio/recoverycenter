@@ -63,6 +63,7 @@ This repository includes:
 
 - .github/workflows/ci.yml: runs lint + build on push and pull requests to main.
 - .github/workflows/deploy-vercel.yml: deploys to Vercel on push to main.
+- .github/workflows/deploy-vercel-preview.yml: deploys to Vercel preview on push to dev.
 
 Add these GitHub repository secrets before enabling production deploys:
 
@@ -82,6 +83,12 @@ Optional first-run test:
 1. Go to Actions in GitHub.
 2. Run workflow: "Deploy to Vercel" using workflow_dispatch.
 3. Confirm a production URL is created.
+
+Preview test:
+
+1. Push a small change to dev.
+2. Confirm workflow "Deploy Preview to Vercel" runs successfully.
+3. Validate preview URL before promoting changes to main.
 
 ## 5) Branch protection recommendation (main)
 

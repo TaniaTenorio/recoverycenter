@@ -4,6 +4,7 @@ Production-ready Next.js website for Recovery Center with Spanish content, servi
 
 ![CI](https://github.com/TaniaTenorio/recoverycenter/actions/workflows/ci.yml/badge.svg)
 ![Deploy to Vercel](https://github.com/TaniaTenorio/recoverycenter/actions/workflows/deploy-vercel.yml/badge.svg)
+![Deploy Preview to Vercel](https://github.com/TaniaTenorio/recoverycenter/actions/workflows/deploy-vercel-preview.yml/badge.svg)
 
 ## Stack
 
@@ -51,6 +52,12 @@ npm run build
 - Trigger: push to main and manual dispatch
 - Target: Vercel production deployment
 
+### Preview deploy workflow
+
+- File: .github/workflows/deploy-vercel-preview.yml
+- Trigger: push to dev and manual dispatch
+- Target: Vercel preview deployment
+
 ## GitHub secrets required for deploy
 
 Add these repository secrets in GitHub before enabling production deploys:
@@ -73,9 +80,12 @@ How to retrieve values:
 3. Run npm run lint and npm run build locally.
 4. Open a pull request to main.
 5. Wait for CI check CI / quality-and-build to pass.
-6. Merge PR.
-7. Confirm Deploy to Vercel workflow succeeds.
-8. Run smoke tests in production.
+6. Merge PR to dev for preview validation.
+7. Confirm Deploy Preview to Vercel workflow succeeds.
+8. Validate preview behavior.
+9. Open PR from dev to main.
+10. Confirm Deploy to Vercel workflow succeeds after merge.
+11. Run smoke tests in production.
 
 ## Branch protection recommendation
 
