@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="140" viewBox="0 0 360 140" role="img" aria-labelledby="title desc">
+  <title id="title">Logo placeholder</title>
+  <desc id="desc">Placeholder logo for client cards</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f7ff"/>
+      <stop offset="100%" stop-color="#e6eeff"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="140" fill="url(#bg)" rx="20"/>
+  <g fill="#24448a" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="180" y="62" font-size="24" font-weight="700" letter-spacing="2">CLIENTE</text>
+    <text x="180" y="88" font-size="16" opacity="0.75">LOGO</text>
+  </g>
+</svg>

@@ -1,59 +1,80 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { clientBrands, features, processSteps, receptionInstructions } from "@/data/siteContent";
+import ContactForm from "@/components/ContactForm";
+import ContactLocationMap from "@/components/ContactLocationMap";
+import ClientBrandsCarousel from "@/components/ClientBrandsCarousel";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
+import HomeServicesSlider from "@/components/HomeServicesSlider";
+import { companyProfile } from "@/data/companyProfile";
+import { servicePages } from "@/data/services";
+
+const featureIcons = ["diagnosis", "science", "local_shipping", "verified_user"];
+const heroTrustHighlights = [
+  {
+    value: "+16",
+    label: "años de experiencia",
+  },
+  {
+    value: "95%",
+    label: "de éxito",
+  },
+  {
+    value: "+10,000",
+    label: "clientes satisfechos",
+  },
+  {
+    value: "+400",
+    label: "RAIDs recuperados",
+  },
+];
+
+export const metadata: Metadata = {
+  title: "Recovery Center | Recuperacion de Datos",
+  description:
+    "Servicio profesional de recuperación de datos para discos duros, SSD, RAID y servidores.",
+  openGraph: {
+    title: "Recovery Center | Recuperación de Datos",
+    description:
+      "Diagnóstico y recuperación de información crítica con laboratorio especializado.",
+    type: "website",
+    locale: "es_MX",
+  },
+};
+
 export default function Home() {
-  const services = [
-    "Recuperacion de discos duros",
-    "Recuperacion de SSD y NVMe",
-    "Recuperacion de servidores",
-    "Recuperacion de arreglos RAID",
-  ];
-
-  const features = [
-    {
-      title: "Diagnostico inicial",
-      description: "Evaluacion tecnica y plan de recuperacion sin compromiso.",
-    },
-    {
-      title: "Laboratorio especializado",
-      description:
-        "Procedimientos controlados para danos logicos, fisicos y electronicos.",
-    },
-    {
-      title: "Atencion nacional",
-      description:
-        "Recoleccion y entrega para clientes en CDMX y toda la Republica.",
-    },
-    {
-      title: "Confidencialidad",
-      description:
-        "Manejo estricto de la informacion y protocolos de seguridad de datos.",
-    },
-  ];
-
-  const process = [
-    "Contacto y levantamiento del caso",
-    "Diagnostico tecnico en laboratorio",
-    "Cotizacion y aprobacion del servicio",
-    "Recuperacion y validacion de archivos",
-    "Entrega segura de la informacion",
-  ];
-
   return (
     <main>
       <section className="hero section">
         <div className="overlay" />
         <div className="container hero-content">
-          <p className="eyebrow">Laboratorio de recuperacion de datos</p>
-          <h1>Recuperacion Profesional de Informacion Critica</h1>
-          <p className="lead">
-            Migracion inicial de sitio WordPress a Next.js, conservando identidad
-            visual, estructura comercial y enfoque tecnico.
-          </p>
-          <div className="cta-row">
-            <a href="#contacto" className="btn btn-primary">
-              Solicitar diagnostico
-            </a>
-            <a href="#servicios" className="btn btn-secondary">
-              Ver servicios
-            </a>
+          <div className="hero-copy">
+            <h1>Recuperación Profesional de Información Crítica</h1>
+            <p className="lead">
+              Somos un equipo de ingenieros especialistas con certificación otorgada por el Information Assurance Certification Review Board (IACRB)
+            </p>
+            <p className="lead">
+              Expertos en recuperación de información, discos duros, SSD, RAID y servidores, dando soporte a equipos de todas las marcas y modelos, con procesos claros, trazables y enfocados en continuidad operativa
+            </p>
+            <p className="lead">Te ofrecemos un diagnóstico gratuito, profesional y confiable</p>
+            <p className="lead">Sólo paga por el éxito de la recuperación</p>
+            <p className="lead">Sin datos no hay cobro</p>
+            <div className="cta-row">
+              <a href="#contacto" className="btn btn-primary">
+                Solicitar diagnóstico
+              </a>
+              <Link href="/servicios" className="btn btn-secondary">
+                Ver servicios
+              </Link>
+            </div>
+          </div>
+          <div className="hero-trust-strip" aria-label="Puntos clave de confianza">
+            {heroTrustHighlights.map((item) => (
+              <article key={item.label} className="hero-trust-card">
+                <p className="hero-trust-value">{item.value}</p>
+                <p className="hero-trust-label">{item.label}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -61,22 +82,26 @@ export default function Home() {
       <section id="servicios" className="section section-navy">
         <div className="container">
           <h2 className="section-title">Servicios Principales</h2>
-          <div className="service-grid">
-            {services.map((service) => (
-              <article key={service} className="service-card">
-                <h3>{service}</h3>
-              </article>
-            ))}
+          <HomeServicesSlider services={servicePages} />
+          <div className="section-actions">
+            <Link href="/servicios" className="btn btn-secondary">
+              Explorar todos los servicios
+            </Link>
           </div>
         </div>
       </section>
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="section-title">Por Que Elegirnos</h2>
+          <h2 className="section-title">Por qué elegirnos</h2>
           <div className="feature-grid">
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <article key={feature.title} className="feature-card">
+                <span className="feature-icon" aria-hidden="true">
+                  <span className="material-symbols-outlined">
+                    {featureIcons[index % featureIcons.length]}
+                  </span>
+                </span>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </article>
@@ -88,58 +113,56 @@ export default function Home() {
       <section className="section section-band">
         <div className="overlay" />
         <div className="container">
-          <h2 className="section-title inverse">Proceso de Recuperacion</h2>
+          <h2 className="section-title inverse">Proceso de Recuperación</h2>
           <ol className="process-list">
-            {process.map((step) => (
+            {processSteps.map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ol>
+          <article className="process-reception" aria-label="Indicaciones para envío del dispositivo">
+            <h3>{receptionInstructions.title}</h3>
+            <p>{receptionInstructions.subtitle}</p>
+            <p>{receptionInstructions.intro}</p>
+            <ul>
+              {receptionInstructions.bullets.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="process-reception__warning">{receptionInstructions.warning}</p>
+            
+          </article>
         </div>
       </section>
+
+      <ClientBrandsCarousel brands={clientBrands} />
 
       <section id="contacto" className="section section-contact">
         <div className="container contact-grid">
           <div>
             <h2 className="section-title">Contacto</h2>
             <p className="contact-text">
-              Esta pagina es una base de migracion. Conecta aqui tu formulario
-              real (antes Contact Form 7) y tus integraciones de analitica.
+              Escríbenos y te responderemos con un diagnóstico inicial de tu
+              caso.
             </p>
             <ul className="contact-list">
-              <li>Telefono: +52 55 0000 0000</li>
-              <li>Email: contacto@recoverycenter.com.mx</li>
-              <li>Cobertura: CDMX y Republica Mexicana</li>
+              <li>
+                Telefono:{" "}
+                <a href={companyProfile.phoneHref}>{companyProfile.phoneDisplay}</a>
+              </li>
+              <li>
+                Email:{" "}
+                <a href={`mailto:${companyProfile.email}`}>{companyProfile.email}</a>
+              </li>
             </ul>
+            <ContactLocationMap />
           </div>
-          <form className="contact-form" aria-label="Formulario de contacto">
-            <label>
-              Nombre
-              <input type="text" name="name" placeholder="Tu nombre" />
-            </label>
-            <label>
-              Correo
-              <input type="email" name="email" placeholder="tu@email.com" />
-            </label>
-            <label>
-              Mensaje
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Cuentanos tu caso"
-              />
-            </label>
-            <button type="submit" className="btn btn-primary">
-              Enviar
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container">
-          <p>Recovery Center - Sitio migrado de WordPress a Next.js</p>
-        </div>
-      </footer>
-      </main>
+      
+
+      <GoogleReviewsSection />
+    </main>
   );
 }
