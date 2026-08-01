@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Reem_Kufi, Roboto, Roboto_Slab } from "next/font/google";
 import LoadPromoModal from "@/components/LoadPromoModal";
 import OptionalScripts from "@/components/OptionalScripts";
-import MobileQuickActions from "@/components/MobileQuickActions";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -54,7 +53,6 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <WhatsAppFab />
-        <MobileQuickActions />
         <SiteFooter />
         <OptionalScripts />
       </body>
