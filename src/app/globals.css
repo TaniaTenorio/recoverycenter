@@ -218,7 +218,7 @@ a {
 }
 
 .hero h1 {
-  max-width: 12ch;
+  /* max-width: 12ch; */
   justify-self: end;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(2rem, 5.2vw, 4.8rem);
@@ -230,7 +230,7 @@ a {
 }
 
 .lead {
-  max-width: 50ch;
+  /* max-width: 12ch; */
   color: var(--text-soft);
   font-size: clamp(1.04rem, 1.8vw, 1.28rem);
 }
