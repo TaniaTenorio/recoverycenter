@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   title: "Recovery Center | Recuperacion de Datos",
   description:
     "Next.js migration baseline generated from a WordPress Elementor homepage.",
+  icons: {
+    icon: "/images/recovery-center-logo.jpg",
+    shortcut: "/images/recovery-center-logo.jpg",
+    apple: "/images/recovery-center-logo.jpg",
+  },
 };
 
 export default function RootLayout({
