@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Reem_Kufi, Roboto, Roboto_Slab } from "next/font/google";
 import LoadPromoModal from "@/components/LoadPromoModal";
 import OptionalScripts from "@/components/OptionalScripts";
-import MobileQuickActions from "@/components/MobileQuickActions";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -30,6 +29,11 @@ export const metadata: Metadata = {
   title: "Recovery Center | Recuperacion de Datos",
   description:
     "Next.js migration baseline generated from a WordPress Elementor homepage.",
+  icons: {
+    icon: "/images/recovery-center-logo.jpg",
+    shortcut: "/images/recovery-center-logo.jpg",
+    apple: "/images/recovery-center-logo.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -54,7 +58,6 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <WhatsAppFab />
-        <MobileQuickActions />
         <SiteFooter />
         <OptionalScripts />
       </body>
