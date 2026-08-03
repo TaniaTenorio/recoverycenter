@@ -4,12 +4,14 @@ import nodemailer from "nodemailer";
 type ContactPayload = {
   name?: string;
   email?: string;
+  phone?: string;
   message?: string;
   company?: string;
   sourcePath?: string;
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\d+$/;
 const WEBHOOK_TIMEOUT_MS = 8000;
 
 type SmtpConfig = {
@@ -29,18 +31,23 @@ function sanitize(input: string): string {
 function validate(payload: ContactPayload): string | null {
   const name = sanitize(payload.name || "");
   const email = sanitize(payload.email || "");
+  const phone = sanitize(payload.phone || "");
   const message = sanitize(payload.message || "");
 
   if (!name || name.length < 2 || name.length > 120) {
-    return "Nombre invalido. Usa entre 2 y 120 caracteres.";
+    return "Nombre inválido. Usa entre 2 y 120 caracteres.";
   }
 
   if (!EMAIL_REGEX.test(email)) {
-    return "Correo invalido.";
+    return "Correo inválido.";
+  }
+
+  if (!PHONE_REGEX.test(phone)) {
+    return "Teléfono inválido. Usa sólo números.";
   }
 
   if (!message || message.length < 10 || message.length > 4000) {
-    return "Mensaje invalido. Usa entre 10 y 4000 caracteres.";
+    return "Mensaje inválido. Usa entre 10 y 4000 caracteres.";
   }
 
   return null;
@@ -109,6 +116,7 @@ async function sendBySmtp(config: SmtpConfig, payload: ReturnType<typeof normali
     "",
     `Nombre: ${payload.name}`,
     `Email: ${payload.email}`,
+    `Teléfono: ${payload.phone}`,
     `Origen: ${payload.sourcePath}`,
     `Fecha: ${payload.receivedAt}`,
     "",
@@ -120,6 +128,7 @@ async function sendBySmtp(config: SmtpConfig, payload: ReturnType<typeof normali
     <h2>Nuevo mensaje desde el formulario de contacto</h2>
     <p><strong>Nombre:</strong> ${payload.name}</p>
     <p><strong>Email:</strong> ${payload.email}</p>
+    <p><strong>Teléfono:</strong> ${payload.phone}</p>
     <p><strong>Origen:</strong> ${payload.sourcePath}</p>
     <p><strong>Fecha:</strong> ${payload.receivedAt}</p>
     <hr />
@@ -141,6 +150,7 @@ function normalizePayload(payload: ContactPayload) {
   return {
     name: sanitize(payload.name || ""),
     email: sanitize(payload.email || ""),
+    phone: sanitize(payload.phone || ""),
     message: sanitize(payload.message || ""),
     sourcePath: sanitize(payload.sourcePath || "/"),
     receivedAt: new Date().toISOString(),

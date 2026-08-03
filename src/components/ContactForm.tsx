@@ -7,6 +7,7 @@ type SubmitState = "idle" | "loading" | "success" | "error";
 const initialValues = {
   name: "",
   email: "",
+  phone: "",
   message: "",
   company: "",
   sourcePath: "",
@@ -86,6 +87,28 @@ export default function ContactForm() {
             setValues((current) => ({ ...current, email: event.target.value }))
           }
           required
+        />
+      </label>
+      <label>
+        Telefono
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Tu número de teléfono"
+          value={values.phone}
+          onChange={(event) =>
+            setValues((current) => ({
+              ...current,
+              phone: event.target.value.replace(/\D/g, ""),
+            }))
+          }
+          inputMode="numeric"
+          autoComplete="tel"
+          required
+          minLength={7}
+          maxLength={25}
+          pattern="\d+"
+          title="Usa sólo números"
         />
       </label>
       <label>
