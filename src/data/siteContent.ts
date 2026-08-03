@@ -42,7 +42,7 @@ export const processSteps: string[] = [
   "Diagnóstico técnico, estimación de recuperabilidad y cotización del servicio. ",
   "Aprobación del presupuesto y ejecución de los procedimientos de recuperación",
   "Envío de la información recuperada para su revisión y validación",
-  "Pago del servicio: en efectivo o transferencia bancaria.",
+  "Pago del servicio: en efectivo, transferencia bancaria o pago con tarjeta (Link de Pago).",
   "Entrega de la información recuperada en el medio de almacenamiento elegido por el cliente.",
 ];
 
@@ -56,6 +56,7 @@ export const receptionInstructions = {
     "El disco debe ir cubierto con plástico burbuja y dentro de una caja de cartón (no sobres), de forma que no tenga movimiento.",
     "Incluye dentro de la caja tus datos de contacto: nombre, teléfono y correo electrónico.",
   ],
+  footer: "Atención a clientes en CDMX y toda la Repúiblica Mexicana.",
 };
 
 export const clientBrands: ClientBrand[] = [

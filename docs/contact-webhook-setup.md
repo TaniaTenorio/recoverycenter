@@ -21,6 +21,7 @@ If your provider does not require a secret header, leave `CONTACT_WEBHOOK_SECRET
 {
   "name": "Nombre del cliente",
   "email": "cliente@email.com",
+  "phone": "+52 55 1234 5678",
   "message": "Descripcion del caso",
   "sourcePath": "/contacto",
   "receivedAt": "2026-07-24T00:00:00.000Z",

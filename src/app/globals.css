@@ -93,7 +93,7 @@ body > main {
 
 .brand-logo {
   width: auto;
-  height: 48px;
+  height: 67px;
   border-radius: 6px;
 }
 
@@ -1595,31 +1595,23 @@ a {
   }
 
   .whatsapp-fab {
-    left: 12px;
-    bottom: 96px;
-    width: 52px;
-    height: 52px;
+    left: 16px;
+    right: auto;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    background: #25d366;
+    border: 0;
+    animation: none;
   }
 
   .whatsapp-fab__icon {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
   }
 
   .whatsapp-fab__tooltip {
-    position: absolute;
-    left: 56px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-block;
-    border-radius: 999px;
-    padding: 0.34rem 0.62rem;
-    font-size: 0.72rem;
-    white-space: nowrap;
-    color: #ffffff;
-    background: rgba(10, 18, 36, 0.86);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: var(--md-shadow-1);
+    display: none;
   }
 
   .service-grid {

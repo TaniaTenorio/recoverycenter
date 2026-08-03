@@ -16,8 +16,8 @@ const heroTrustHighlights = [
     label: "años de experiencia",
   },
   {
-    value: "95%",
-    label: "de éxito",
+    value: "96%",
+    label: "de efectividad",
   },
   {
     value: "+10,000",
@@ -129,6 +129,7 @@ export default function Home() {
               ))}
             </ul>
             <p className="process-reception__warning">{receptionInstructions.warning}</p>
+            <p>{receptionInstructions.footer}</p>
             
           </article>
         </div>

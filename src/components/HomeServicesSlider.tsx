@@ -24,6 +24,14 @@ export default function HomeServicesSlider({
   const dragOffsetPercent = (dragOffset / viewportWidth) * 100
   const trackTransform = `translateX(calc(-${currentIndex * 100}% + ${dragOffsetPercent}%))`
 
+  const isInteractiveTarget = (target: EventTarget | null) => {
+    if (!(target instanceof Element)) {
+      return false
+    }
+
+    return Boolean(target.closest("a, button, input, textarea, select, [data-no-drag]"))
+  }
+
   const goTo = (index: number) => {
     setCurrentIndex(index)
   }
@@ -65,6 +73,10 @@ export default function HomeServicesSlider({
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "mouse" && event.button !== 0) {
+      return
+    }
+
+    if (isInteractiveTarget(event.target)) {
       return
     }
 
