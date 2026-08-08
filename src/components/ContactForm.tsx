@@ -90,7 +90,7 @@ export default function ContactForm() {
         />
       </label>
       <label>
-        Telefono
+        Teléfono
         <input
           type="tel"
           name="phone"

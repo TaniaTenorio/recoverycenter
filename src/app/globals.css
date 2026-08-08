@@ -1314,12 +1314,12 @@ a {
 }
 
 .promo-modal__image {
+  display: block;
   width: 100%;
   aspect-ratio: 636 / 643;
   min-height: 320px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .promo-modal__close {

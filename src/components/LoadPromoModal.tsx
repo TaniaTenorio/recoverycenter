@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 
 
 const SESSION_KEY = "rc-promo-modal-dismissed";
 const POPUP_ID = "2515";
+const FALLBACK_PROMO_IMAGE_URL = "/images/recuperacion-de-datos.jpg";
 
 function useIsHydrated(): boolean {
   return useSyncExternalStore(
@@ -30,6 +31,7 @@ export default function LoadPromoModal() {
       "https://recoverycenter.com.mx/wp-content/uploads/2024/04/recuperacion-de-datos.jpg",
     [],
   );
+  const [currentImageUrl, setCurrentImageUrl] = useState(promoImageUrl);
 
   const closeModal = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -88,10 +90,19 @@ export default function LoadPromoModal() {
           X
         </button>
 
-        <div
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           className="promo-modal__image"
           data-id={POPUP_ID}
-          style={{ backgroundImage: `url(${promoImageUrl})` }}
+          src={currentImageUrl}
+          alt="Promocion destacada de Recovery Center"
+          loading="eager"
+          decoding="async"
+          onError={() => {
+            if (currentImageUrl !== FALLBACK_PROMO_IMAGE_URL) {
+              setCurrentImageUrl(FALLBACK_PROMO_IMAGE_URL);
+            }
+          }}
         />
       </div>
     </div>
