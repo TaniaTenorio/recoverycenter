@@ -26,7 +26,7 @@ export const features: Feature[] = [
       "Procedimientos controlados para daños lógicos, físicos y electrónicos.",
   },
   {
-    title: "Atención nacional",
+    title: "Atención para clientes en CDMX y toda la República",
     description:
       "Recolección y entrega para clientes en CDMX y toda la República.",
   },
@@ -42,7 +42,7 @@ export const processSteps: string[] = [
   "Diagnóstico técnico, estimación de recuperabilidad y cotización del servicio. ",
   "Aprobación del presupuesto y ejecución de los procedimientos de recuperación",
   "Envío de la información recuperada para su revisión y validación",
-  "Pago del servicio: en efectivo, transferencia bancaria o pago con tarjeta (Link de Pago).",
+  "Pago del servicio: transferencia bancaria o pago con tarjeta (Link de Pago).",
   "Entrega de la información recuperada en el medio de almacenamiento elegido por el cliente.",
 ];
 
@@ -53,7 +53,7 @@ export const receptionInstructions = {
   intro:
     "Para proteger el dispositivo durante el traslado, sigue estas indicaciones antes de enviarlo:",
   bullets: [
-    "El disco debe ir cubierto con plástico burbuja y dentro de una caja de cartón (no sobres), de forma que no tenga movimiento.",
+    "El disco debe ir cubierto con hule burbuja y dentro de una caja de cartón (no sobres), de forma que no tenga movimiento.",
     "Incluye dentro de la caja tus datos de contacto: nombre, teléfono y correo electrónico.",
   ],
   footer: "Atención a clientes en CDMX y toda la Repúiblica Mexicana.",

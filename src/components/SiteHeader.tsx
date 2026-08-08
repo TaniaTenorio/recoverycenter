@@ -22,12 +22,6 @@ export default function SiteHeader() {
               className="brand-logo"
             />
           </Link>
-          <div className="brand-block">
-            <Link href="/" className="brand-name">
-              {companyProfile.name}
-            </Link>
-            <p className="brand-tagline">{companyProfile.tagline}</p>
-          </div>
         </div>
 
         <button
