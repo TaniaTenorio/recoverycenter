@@ -2,7 +2,7 @@
 const mapQuery = encodeURIComponent("Recovery Center Polanco CDMX");
 const mapEmbedSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
-export default function ContactLocationMap() {
+export default function ContactLocationMap({mapSize}: {mapSize?: string}) {
   return (
     <div className="contact-map-card" aria-label="Ubicacion en Google Maps">
       <p className="contact-map-title">
@@ -17,7 +17,7 @@ export default function ContactLocationMap() {
           src={mapEmbedSrc}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="contact-map-frame"
+          className={mapSize === "small" ? "contact-map-frame-small" : "contact-map-frame"}
         />
       </div>
     </div>

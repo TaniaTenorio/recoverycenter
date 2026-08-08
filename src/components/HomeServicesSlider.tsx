@@ -10,12 +10,15 @@ type HomeServicesSliderProps = {
   services: ServicePage[]
 }
 
+const AUTO_PLAY_DELAY_MS = 5500
+
 export default function HomeServicesSlider({
   services,
 }: HomeServicesSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [dragOffset, setDragOffset] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [isAutoPlayPaused, setIsAutoPlayPaused] = useState(false)
   const viewportRef = useRef<HTMLDivElement | null>(null)
   const dragStartX = useRef(0)
   const activePointerId = useRef<number | null>(null)
@@ -37,11 +40,11 @@ export default function HomeServicesSlider({
   }
 
   const goPrev = () => {
-    setCurrentIndex((index) => Math.max(0, index - 1))
+    setCurrentIndex((index) => (index - 1 + total) % total)
   }
 
   const goNext = () => {
-    setCurrentIndex((index) => Math.min(total - 1, index + 1))
+    setCurrentIndex((index) => (index + 1) % total)
   }
 
   useEffect(() => {
@@ -57,12 +60,26 @@ export default function HomeServicesSlider({
     }
   }, [])
 
+  useEffect(() => {
+    if (total < 2 || isDragging || isAutoPlayPaused) {
+      return
+    }
+
+    const intervalId = window.setInterval(() => {
+      setCurrentIndex((index) => (index + 1) % total)
+    }, AUTO_PLAY_DELAY_MS)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [isAutoPlayPaused, isDragging, total])
+
   const finishDrag = () => {
     if (Math.abs(dragOffset) > viewportWidth * 0.18) {
       if (dragOffset > 0) {
-        setCurrentIndex((index) => Math.max(0, index - 1))
+        setCurrentIndex((index) => (index - 1 + total) % total)
       } else {
-        setCurrentIndex((index) => Math.min(total - 1, index + 1))
+        setCurrentIndex((index) => (index + 1) % total)
       }
     }
 
@@ -117,6 +134,10 @@ export default function HomeServicesSlider({
       <div
         ref={viewportRef}
         className={`services-slider__viewport ${isDragging ? "is-dragging" : ""}`}
+        onMouseEnter={() => setIsAutoPlayPaused(true)}
+        onMouseLeave={() => setIsAutoPlayPaused(false)}
+        onFocus={() => setIsAutoPlayPaused(true)}
+        onBlur={() => setIsAutoPlayPaused(false)}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -178,43 +199,48 @@ export default function HomeServicesSlider({
       </div>
 
       <div className="services-slider__controls">
-        {currentIndex > 0 ? (
-          <button
-            type="button"
-            className="services-slider__btn"
-            onClick={goPrev}
-            aria-label="Servicio anterior"
-          >
-            <span className="material-symbols-outlined">chevron_left</span>
-          </button>
-        ) : (
-          <span className="services-slider__btn-spacer" />
-        )}
+        <button
+          type="button"
+          className="services-slider__btn"
+          onClick={goPrev}
+          aria-label="Servicio anterior"
+        >
+          <span className="material-symbols-outlined">chevron_left</span>
+        </button>
 
-        <div className="services-slider__dots">
-          {services.map((service, index) => (
-            <button
-              key={service.slug}
-              type="button"
-              className={`services-slider__dot ${index === currentIndex ? "is-active" : ""}`}
-              onClick={() => goTo(index)}
-              aria-label={`Ir a ${service.shortTitle}`}
+        <div className="services-slider__status">
+          <div
+            className={`services-slider__progress ${isAutoPlayPaused || isDragging ? "is-paused" : ""}`}
+            aria-hidden="true"
+          >
+            <span
+              key={currentIndex}
+              className="services-slider__progress-fill"
+              style={{ animationDuration: `${AUTO_PLAY_DELAY_MS}ms` }}
             />
-          ))}
+          </div>
+
+          <div className="services-slider__dots">
+            {services.map((service, index) => (
+              <button
+                key={service.slug}
+                type="button"
+                className={`services-slider__dot ${index === currentIndex ? "is-active" : ""}`}
+                onClick={() => goTo(index)}
+                aria-label={`Ir a ${service.shortTitle}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {currentIndex < total - 1 ? (
-          <button
-            type="button"
-            className="services-slider__btn"
-            onClick={goNext}
-            aria-label="Siguiente servicio"
-          >
-            <span className="material-symbols-outlined">chevron_right</span>
-          </button>
-        ) : (
-          <span className="services-slider__btn-spacer" />
-        )}
+        <button
+          type="button"
+          className="services-slider__btn"
+          onClick={goNext}
+          aria-label="Siguiente servicio"
+        >
+          <span className="material-symbols-outlined">chevron_right</span>
+        </button>
       </div>
     </div>
   )

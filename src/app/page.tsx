@@ -154,6 +154,9 @@ export default function Home() {
                 Email:{" "}
                 <a href={`mailto:${companyProfile.email}`}>{companyProfile.email}</a>
               </li>
+              <li>
+                Horario de atención: Lunes a Viernes, 9:00 a 18:00 hrs.
+              </li>
             </ul>
             <ContactLocationMap />
           </div>

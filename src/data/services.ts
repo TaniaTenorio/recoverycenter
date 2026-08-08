@@ -24,7 +24,7 @@ export const servicePages: ServicePage[] = [
     shortTitle: "Discos Duros",
     icon: "storage",
     tone: "indigo",
-    image: "/images/hard-drive-full.jpeg",
+    image: "/images/hard-drive-new.jpg",
     width: 500,
     height: 500,
     summary:

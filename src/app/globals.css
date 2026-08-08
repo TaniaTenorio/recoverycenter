@@ -93,7 +93,7 @@ body > main {
 
 .brand-logo {
   width: auto;
-  height: 67px;
+  height: 72px;
   border-radius: 6px;
 }
 
@@ -406,6 +406,33 @@ a {
   gap: 0.45rem;
 }
 
+.services-slider__status {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.services-slider__progress {
+  width: min(220px, 100%);
+  height: 3px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 18%, transparent);
+}
+
+.services-slider__progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  background: #ffffff;
+  animation: slider-progress linear forwards;
+}
+
+.services-slider__progress.is-paused .services-slider__progress-fill {
+  animation-play-state: paused;
+}
+
 .services-slider__dot {
   width: 10px;
   height: 10px;
@@ -695,6 +722,13 @@ a {
 .contact-map-frame {
   display: block;
   width: 100%;
+  min-height: 280px;
+  border: 0;
+}
+
+.contact-map-frame-small {
+  display: block;
+  width: 100%;
   min-height: 220px;
   border: 0;
 }
@@ -840,9 +874,9 @@ a {
 }
 
 .detail-block ul {
-  padding-left: 1.2rem;
   display: grid;
   gap: 0.45rem;
+  margin-top: 0.5rem;
 }
 
 .faq-grid {
@@ -1392,6 +1426,16 @@ a {
   }
 }
 
+@keyframes slider-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes clients-marquee {
   from {
     transform: translateX(0);
@@ -1459,7 +1503,7 @@ a {
   }
 
   .hero {
-    min-height: 82vh;
+    min-height: 50vh;
     background-image: url("/images/hero-recovery-mobile.jpg");
   }
 
@@ -1623,12 +1667,42 @@ a {
   }
 
   .service-card--wide {
-    min-height: 240px;
-    padding: 1.15rem;
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .service-card--wide .service-card-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .service-card--wide .service-card-content {
+    max-width: none;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .service-card--wide .service-card-header {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.65rem;
+  }
+
+  .service-card--wide .service-card-summary {
+    max-width: none;
   }
 
   .services-slider__controls {
     grid-template-columns: 40px 1fr 40px;
+  }
+
+  .services-slider__progress {
+    width: min(180px, 100%);
   }
 
   .services-slider__btn,
