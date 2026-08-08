@@ -147,7 +147,7 @@ export default function Home() {
             </p>
             <ul className="contact-list">
               <li>
-                Telefono:{" "}
+                Teléfono:{" "}
                 <a href={companyProfile.phoneHref}>{companyProfile.phoneDisplay}</a>
               </li>
               <li>
