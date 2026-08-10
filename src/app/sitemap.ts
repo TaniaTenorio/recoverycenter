@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { servicePages } from "@/data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.recoverycenter.com.mx");
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
