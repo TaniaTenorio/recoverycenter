@@ -37,7 +37,7 @@ export const fallbackGoogleReviews: GoogleReview[] = [
     author: "Sulamita Cazarez",
     date: "26 Noviembre 2021",
     rating: 5,
-    text: "Excelente servicio, recuperacion de datos completos, siempre atentos a las dudas y resolvieron de forma satisfactoria.",
+    text: "Excelente servicio, recuperación de datos completos, siempre atentos a las dudas y resolvieron de forma satisfactoria.",
   },
   {
     author: "Jorge Fdz",
@@ -61,7 +61,7 @@ export const fallbackGoogleReviews: GoogleReview[] = [
     author: "Renato Gonzalez",
     date: "3 Mayo 2021",
     rating: 5,
-    text: "Nos apoyaron muy bien con la recuperacion de informacion. El trato fue muy bueno en todo el proceso y son expertos.",
+    text: "Nos apoyaron muy bien con la recuperación de información. El trato fue muy bueno en todo el proceso y son expertos.",
   },
   {
     author: "Cliente verificado 01",

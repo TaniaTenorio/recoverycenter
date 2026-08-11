@@ -6,7 +6,7 @@ import { companyProfile } from "@/data/companyProfile";
 export const metadata: Metadata = {
   title: `Contacto | ${companyProfile.name}`,
   description:
-    "Solicita un diagnostico inicial para tu caso de recuperacion de datos.",
+    "Solicita un diagnostico inicial para tu caso de recuperación de datos.",
 };
 
 export default function ContactoPage() {

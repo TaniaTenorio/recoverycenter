@@ -30,7 +30,7 @@ const heroTrustHighlights = [
 ];
 
 export const metadata: Metadata = {
-  title: "Recovery Center | Recuperacion de Datos",
+  title: "Recovery Center | Recuperación de Datos",
   description:
     "Servicio profesional de recuperación de datos para discos duros, SSD, RAID y servidores.",
   openGraph: {
