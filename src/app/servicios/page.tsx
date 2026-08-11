@@ -5,14 +5,14 @@ import { servicePages } from "@/data/services";
 export const metadata: Metadata = {
   title: "Servicios | Recovery Center",
   description:
-    "Conoce nuestros servicios de recuperacion de datos para discos duros, SSD, servidores y RAID.",
+    "Conoce nuestros servicios de recuperación de datos para discos duros, SSD, servidores y RAID.",
 };
 
 export default function ServiciosPage() {
   return (
     <main className="section section-light">
       <div className="container">
-        <h1 className="section-title">Servicios de Recuperacion</h1>
+        <h1 className="section-title">Servicios de Recuperación</h1>
         <p className="service-intro">
           Selecciona un servicio para ver alcance, proceso y preguntas frecuentes.
         </p>
