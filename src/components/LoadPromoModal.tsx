@@ -27,8 +27,7 @@ export default function LoadPromoModal() {
 
   const promoImageUrl = useMemo(
     () =>
-      process.env.NEXT_PUBLIC_PROMO_MODAL_IMAGE_URL ||
-      "https://recoverycenter.com.mx/wp-content/uploads/2024/04/recuperacion-de-datos.jpg",
+      process.env.NEXT_PUBLIC_PROMO_MODAL_IMAGE_URL,
     [],
   );
   const [currentImageUrl, setCurrentImageUrl] = useState(promoImageUrl);
