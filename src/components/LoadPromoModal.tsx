@@ -25,13 +25,6 @@ export default function LoadPromoModal() {
     return window.sessionStorage.getItem(SESSION_KEY) !== "1";
   });
 
-  const promoImageUrl = useMemo(
-    () =>
-      process.env.NEXT_PUBLIC_PROMO_MODAL_IMAGE_URL,
-    [],
-  );
-  const [currentImageUrl, setCurrentImageUrl] = useState(promoImageUrl);
-
   const closeModal = useCallback(() => {
     if (typeof window !== "undefined") {
       window.sessionStorage.setItem(SESSION_KEY, "1");
@@ -93,15 +86,10 @@ export default function LoadPromoModal() {
         <img
           className="promo-modal__image"
           data-id={POPUP_ID}
-          src={currentImageUrl}
+          src={FALLBACK_PROMO_IMAGE_URL}
           alt="Promocion destacada de Recovery Center"
           loading="eager"
           decoding="async"
-          onError={() => {
-            if (currentImageUrl !== FALLBACK_PROMO_IMAGE_URL) {
-              setCurrentImageUrl(FALLBACK_PROMO_IMAGE_URL);
-            }
-          }}
         />
       </div>
     </div>
