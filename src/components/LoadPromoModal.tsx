@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 
 const SESSION_KEY = "rc-promo-modal-dismissed";
 const POPUP_ID = "2515";
@@ -68,8 +68,8 @@ export default function LoadPromoModal() {
       />
 
       <div
-        id="sgpb-popup-dialog-main-div"
-        className="promo-modal__dialog sgpb-content sgpb-content-2515 sgpb-theme-1-content sg-popup-content"
+        id="promo-modal-dialog-main"
+        className="promo-modal__dialog"
         role="dialog"
         aria-modal="true"
         aria-labelledby="promo-modal-title"

@@ -28,7 +28,7 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   title: "Recovery Center | Recuperación de Datos",
   description:
-    "Next.js migration baseline generated from a WordPress Elementor homepage.",
+    "Especialistas en recuperacion de datos para discos duros, SSD, servidores y escenarios de ransomware.",
   icons: {
     icon: "/images/recovery-center-logo-short.jpg",
     shortcut: "/images/recovery-center-logo-short.jpg",
