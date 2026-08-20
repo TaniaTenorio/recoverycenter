@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+const scriptSrcUnsafeEval = isDev ? " 'unsafe-eval'" : "";
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
@@ -9,13 +12,13 @@ const securityHeaders = [
       "frame-ancestors 'self'",
       "form-action 'self'",
       "object-src 'none'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://s.cliengo.com",
-      "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://s.cliengo.com",
+      `script-src 'self' 'unsafe-inline'${scriptSrcUnsafeEval} https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://s.cliengo.com https://lw2.cliengo.com`,
+      "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com https://www.googleadservices.com https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://s.cliengo.com https://lw2.cliengo.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' data: https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https://cdn.trustindex.io https://recoverycenter.com.mx https://www.recoverycenter.com.mx https://www.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com https://google.com",
-      "connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://google.com",
-      "frame-src 'self' https://www.google.com https://www.googletagmanager.com",
+      "img-src 'self' data: blob: https://cdn.trustindex.io https://recoverycenter.com.mx https://www.recoverycenter.com.mx https://www.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com https://google.com https://res.cloudinary.com https://www.cliengo.com https://*.cliengo.com",
+      "connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://google.com https://*.cliengo.com wss://*.cliengo.com",
+      "frame-src 'self' https://www.google.com https://www.googletagmanager.com https://*.cliengo.com",
       "upgrade-insecure-requests",
     ].join("; "),
   },
