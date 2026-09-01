@@ -34,7 +34,7 @@ export default function OptionalScripts() {
       {gtagIds.length ? (
         <>
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtagIds[0]}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=GTM-K2ZTMMPJ`}
             strategy="afterInteractive"
           />
           <Script id="ga-script" strategy="afterInteractive">
